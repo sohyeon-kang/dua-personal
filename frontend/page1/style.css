@@ -163,3 +163,5 @@ body {
 .search-btn.selected {
     background-color: #dff0ff;
 }
+
+.filter-section { margin-top: 20px; }

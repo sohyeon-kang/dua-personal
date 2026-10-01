@@ -6,13 +6,14 @@
     <title>DUA 코스 지도</title>
     <style>
         html, body, #map { width: 100%; height: 100%; margin: 0; }
-        body { font-family: sans-serif; background: #f5fbff; }
-        #map-message { position: absolute; z-index: 10; inset: 0; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 24px; text-align: center; background: #f5fbff; color: #555; line-height: 1.7; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Malgun Gothic', sans-serif; background: #eef1e7; }
+        #map-message { position: absolute; z-index: 10; inset: 0; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 18px; text-align: center; background: #eef1e7; color: #64716a; line-height: 1.7; font-size: 12px; }
         [hidden] { display: none !important; }
-        a, button { color: #335d78; font: inherit; }
-        button { margin-top: 12px; border: 2px solid #b8e5ff; padding: 8px 14px; background: white; cursor: pointer; }
+        a, button { color: #03695e; font: inherit; }
+        a { min-height: 36px; display: inline-flex; align-items: center; }
+        button { margin-top: 8px; border: 1px solid #c9daf6; border-radius: 8px; min-height: 40px; padding: 8px 14px; background: white; cursor: pointer; }
         .info-window { padding: 10px; font-size: 13px; line-height: 1.5; min-width: 160px; max-width: 260px; }
-        .info-title { font-weight: bold; color: #0369a1; }
+        .info-title { font-weight: bold; color: #03695e; }
     </style>
     <script src="shared.js" defer></script>
     <script src="map.js" defer></script>

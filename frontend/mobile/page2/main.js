@@ -22,13 +22,18 @@ function render() {
         tab.title = courses[index] ? `${index + 1}번 코스` : '추천 가능한 코스가 없습니다.';
     });
     document.getElementById('course-panel').setAttribute('aria-labelledby', `course-tab-${selectedIndex}`);
+    document.getElementById('course-panel').style.setProperty('--course-color', ['#03695e', '#6daf5f', '#a5c6db'][selectedIndex]);
     for (let index = 0; index < 3; index++) {
         document.getElementById(`spot${index + 1}`).textContent = course?.[index]?.name || (loading ? '불러오는 중...' : '추천 장소 없음');
     }
     selectButton.disabled = loading || !course;
     retryButton.disabled = loading || !filters;
     retryButton.textContent = courses.length ? '다시 추천받기' : '다시 시도';
-    document.getElementById('course-distance').textContent = course ? `장소 간 직선거리 합계 약 ${distance(course)} km · 실제 이동 경로와 다를 수 있습니다.` : '';
+    document.getElementById('course-distance').textContent = course ? `${distance(course)} km` : '';
+    const bookmark = document.getElementById('bookmark-course');
+    bookmark.disabled = loading || !course;
+    bookmark.setAttribute('aria-pressed', String(!!course && DUA.bookmarks.hasCourse(course)));
+    bookmark.setAttribute('aria-label', course && DUA.bookmarks.hasCourse(course) ? '코스 저장 해제' : '코스 저장');
     map.update(courses, selectedIndex);
 }
 function selectTab(index) {
@@ -93,3 +98,5 @@ if (filters) {
     message.textContent = '선택한 조건이 없습니다. 조건 변경을 눌러 지역, 동행 유형, 날씨를 선택해주세요.';
     render();
 }
+
+document.getElementById('bookmark-course').addEventListener('click', () => { const result = DUA.bookmarks.toggleCourse({ filters, course: courses[selectedIndex], selectedIndex }); message.textContent = result.ok ? (result.saved ? '코스를 저장했어요.' : '코스 저장을 해제했어요.') : '저장 공간을 사용할 수 없습니다.'; render(); });

@@ -1,0 +1,24 @@
+[hidden] { display: none !important; }
+button, select { font: inherit; }
+button:disabled { opacity: .45; cursor: not-allowed; }
+button:focus-visible, a:focus-visible, select:focus-visible { outline: 3px solid #0369a1; outline-offset: 4px; }
+.status-message { color: #555; line-height: 1.7; overflow-wrap: anywhere; }
+.status-message:empty { display: none; }
+.filter-summary { color: #666; line-height: 1.6; margin: 0; }
+.page-actions { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+.text-link, .text-button { color: #335d78; font: inherit; background: transparent; border: 0; padding: 6px 0; text-decoration: underline; cursor: pointer; }
+.distance-note { color: #666; font-size: 13px; line-height: 1.6; }
+.option-card { font-family: inherit; border-radius: 0; }
+.tab-item { font-family: inherit; border-top: 0; border-left: 0; border-bottom: 0; background: transparent; }
+.title-box { gap: 8px; flex-wrap: wrap; text-align: center; }
+.course-selection-container { margin-top: 24px; }
+.spot-name { overflow-wrap: anywhere; }
+@media (max-width: 420px) {
+    body { padding: 16px; }
+    .container { padding: 0; }
+    .options-wrapper { gap: 8px; }
+    .option-card { padding: 18px 4px; }
+    .tab-content { padding: 14px; }
+    .timeline-container { padding: 24px 14px; }
+    .course-selection-container .course-selection-btn { width: 75%; }
+}

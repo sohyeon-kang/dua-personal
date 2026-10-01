@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DUA - 선택한 코스</title>
+    <link rel="stylesheet" href="../page2/style.css">
+    <link rel="stylesheet" href="../shared.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="../shared.js" defer></script>
+    <script src="main.js" defer></script>
+</head>
+<body>
+<main class="container">
+    <div class="box-frame title-box" id="selected-title">선택한 코스</div>
+    <p id="detail-message" class="status-message" role="status"></p>
+    <div id="course-detail" hidden>
+        <p id="filter-summary" class="filter-summary"></p>
+        <div class="box-frame map-box">
+            <iframe id="map-frame" src="../map.html" class="map-iframe" title="선택한 코스 지도"></iframe>
+        </div>
+        <p class="distance-note" id="course-distance"></p>
+        <section id="places" aria-label="방문 순서와 장소 정보"></section>
+        <div class="page-actions">
+            <a id="route-link" class="text-link" target="_blank" rel="noopener noreferrer">카카오맵에서 전체 도보 길찾기</a>
+            <button id="copy-course" class="text-button" type="button">코스 내용 복사</button>
+        </div>
+        <p id="copy-message" class="status-message" role="status"></p>
+        <textarea id="copy-fallback" aria-label="복사할 코스 내용" readonly hidden></textarea>
+    </div>
+    <nav class="page-actions" aria-label="코스 이동">
+        <a id="back-to-courses" class="text-link" href="../page2/" hidden>추천 코스로 돌아가기</a>
+        <a id="change-filters" class="text-link" href="../page1/">조건 변경</a>
+    </nav>
+</main>
+</body>
+</html>

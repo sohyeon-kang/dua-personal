@@ -48,7 +48,7 @@ if (!validFilters(saved?.filters) || !validCourse(saved?.course)) {
 } else {
     const { filters, course } = saved;
     document.getElementById('course-detail').hidden = false;
-    document.getElementById('selected-title').textContent = `${regionNames[filters.region]} 선택한 코스`;
+    document.getElementById('selected-title').textContent = `${regionNames[filters.region]} 식당·카페 코스`;
     document.getElementById('filter-summary').textContent = filtersText(filters);
     document.getElementById('course-distance').textContent = `장소 간 직선거리 합계 약 ${distance(course)} km입니다. 실제 이동 경로와 소요 시간은 길찾기에서 확인해주세요.`;
     document.getElementById('change-filters').href = pageUrl('page1', filters);
@@ -78,7 +78,11 @@ if (!validFilters(saved?.filters) || !validCourse(saved?.course)) {
             row.append(element('dt', label), description);
             details.append(row);
         });
-        if (details.children.length) card.append(details);
+        if (details.children.length) {
+            const disclosure = element('details', '', 'place-disclosure');
+            disclosure.append(element('summary', '방문 정보 더 보기'), details);
+            card.append(disclosure);
+        }
         else card.append(element('p', '추가 이용 정보는 아직 등록되지 않았습니다.', 'distance-note'));
         const links = element('div', '', 'page-actions place-actions');
         const view = element('a', '카카오맵에서 장소 보기', 'text-link');

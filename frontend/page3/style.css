@@ -1,0 +1,57 @@
+#course-detail { display: flex; flex-direction: column; gap: 20px; }
+#places { display: grid; gap: 24px; }
+.place-card {
+    border: 4px solid #b8e5ff;
+    padding: 24px;
+    color: #333;
+    font-size: 15px;
+    line-height: 1.75;
+    word-break: keep-all;
+    overflow-wrap: anywhere;
+}
+.place-heading { display: flex; align-items: center; gap: 14px; }
+.place-heading .spot-circle { width: 40px; height: 40px; font-size: 18px; }
+.place-title { display: flex; align-items: center; flex-wrap: wrap; gap: 6px 10px; min-width: 0; }
+.place-title .spot-name { font-size: 20px; line-height: 1.5; }
+.place-category {
+    color: #335d78;
+    background: #f0f9ff;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    white-space: nowrap;
+}
+.place-address { color: #555; margin: 14px 0 0; font-size: 14px; }
+.place-card .distance-note { margin: 8px 0 0; }
+.place-details { margin: 20px 0 0; }
+.detail-row {
+    display: grid;
+    grid-template-columns: 92px minmax(0, 1fr);
+    gap: 16px;
+    padding: 16px 0;
+    border-top: 1px solid #e5eff5;
+}
+.detail-row dt { font-weight: bold; color: #335d78; }
+.detail-row dd { margin: 0; min-width: 0; }
+.detail-items { list-style: none; padding: 0; margin: 0; }
+.detail-items li { position: relative; padding-left: 12px; }
+.detail-items li + li { margin-top: 8px; }
+.detail-items li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: .75em;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: #78bfe5;
+}
+.place-actions { border-top: 1px solid #e5eff5; padding-top: 16px; margin-top: 4px; gap: 8px 16px; font-size: 14px; }
+.place-actions .text-link { text-underline-offset: 4px; }
+#copy-fallback { box-sizing: border-box; width: 100%; min-height: 220px; font: inherit; line-height: 1.6; }
+@media (max-width: 420px) {
+    .place-card { padding: 20px 16px; }
+    .place-title .spot-name { font-size: 18px; }
+    .detail-row { grid-template-columns: 1fr; gap: 6px; padding: 14px 0; }
+    .place-actions { flex-direction: column; align-items: flex-start; }
+}

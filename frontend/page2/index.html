@@ -3,79 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Passport - 추천 코스</title>
-    <link rel="stylesheet" href="./style.css">
+    <title>DUA - 추천 코스</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../shared.css">
+    <script src="../shared.js" defer></script>
+    <script src="main.js" defer></script>
 </head>
 <body>
-<div class="container">
-
-    <div class="box-frame title-box">
-        <span id="dynamic-region-name">부산</span> 추천 코스
-    </div>
-
+<main class="container">
+    <div class="box-frame title-box"><span id="dynamic-region-name">부산</span> 추천 코스</div>
+    <p class="filter-summary" id="filter-summary"></p>
     <div class="box-frame map-box">
-        <iframe
-    id="map-frame"
-    src="../map.html"
-    class="map-iframe"
-    title="추천 코스 지도">
-</iframe>
+        <iframe id="map-frame" src="../map.html" class="map-iframe" title="추천 코스 지도"></iframe>
     </div>
-
-    <section>
-
+    <section id="course-section" aria-busy="true">
         <div class="course-title">&lt; 코스 추천 &gt;</div>
-
+        <p id="course-message" class="status-message" role="status" aria-live="polite">추천 코스를 불러오는 중입니다.</p>
         <div class="tab-container">
-
-            <div class="tab-menu">
-                <div class="tab-item active">①</div>
-                <div class="tab-item">②</div>
-                <div class="tab-item">③</div>
+            <div class="tab-menu" role="tablist" aria-label="추천 코스">
+                <button class="tab-item active" id="course-tab-0" role="tab" aria-controls="course-panel" aria-selected="true" disabled>①</button>
+                <button class="tab-item" id="course-tab-1" role="tab" aria-controls="course-panel" aria-selected="false" tabindex="-1" disabled>②</button>
+                <button class="tab-item" id="course-tab-2" role="tab" aria-controls="course-panel" aria-selected="false" tabindex="-1" disabled>③</button>
             </div>
-
-            <div class="tab-content active">
-
-                <div class="timeline-container">
-
-                    <div class="timeline-track">
-
-                        <div class="spot">
-                            <div class="spot-circle">1</div>
-                            <p class="spot-name" id="spot1">불러오는 중...</p>
-                        </div>
-
-                        <div class="spot">
-                            <div class="spot-circle">2</div>
-                            <p class="spot-name" id="spot2">불러오는 중...</p>
-                        </div>
-
-                        <div class="spot">
-                            <div class="spot-circle">3</div>
-                            <p class="spot-name" id="spot3">불러오는 중...</p>
-                        </div>
-
-                    </div>
-
-                </div>
-
+            <div class="tab-content active" id="course-panel" role="tabpanel" aria-labelledby="course-tab-0">
+                <div class="timeline-container"><div class="timeline-track">
+                    <div class="spot"><div class="spot-circle">1</div><p class="spot-name" id="spot1">불러오는 중...</p></div>
+                    <div class="spot"><div class="spot-circle">2</div><p class="spot-name" id="spot2">불러오는 중...</p></div>
+                    <div class="spot"><div class="spot-circle">3</div><p class="spot-name" id="spot3">불러오는 중...</p></div>
+                </div></div>
             </div>
-
         </div>
-
+        <p id="course-distance" class="distance-note"></p>
         <div class="course-selection-container">
-            <button class="course-selection-btn"
-                    onclick="this.classList.toggle('selected')">
-                코스 선택
-                <div class="course-selection-icon-box">✔️</div>
-            </button>
+            <button id="select-course" class="course-selection-btn" type="button" disabled>코스 선택 <span aria-hidden="true">✔️</span></button>
         </div>
-
     </section>
-
-</div>
-
-<script src="./main.js"></script>
-
+    <nav class="page-actions" aria-label="추천 코스 작업">
+        <a id="change-filters" class="text-link" href="../page1/">조건 변경</a>
+        <button id="retry-course" class="text-button" type="button" disabled>다시 추천받기</button>
+    </nav>
+</main>
 </body>
 </html>

@@ -1,105 +1,53 @@
-
 <!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Passport - 부산 지하철 여행 검색</title>
-    <!-- 외부 스타일시트 연결 -->
+    <title>DUA - 부산 여행 검색</title>
     <link rel="stylesheet" href="style.css">
-   
+    <link rel="stylesheet" href="../shared.css">
+    <script src="../shared.js" defer></script>
+    <script src="main.js" defer></script>
 </head>
 <body>
-
-    <div class="container">
-        
+    <main class="container">
         <div class="section-box">
             <div class="title-text">DUA</div>
             <div class="title-small-text">어디로든 떠나고 싶은 순간, 부산이 답합니다.</div>
         </div>
-
-        <div class="section-box">
-            <div class="region-select-wrapper">
-        <select class="region-select" id="region-select">
-        <option value="" disabled selected>지역 선택</option>
-        <option value="수영구">광안리</option>
-        <option value="해운대구">해운대</option>
-        <option value="서면">서면</option> 
-    </select>
+        <form id="search-form">
+            <div class="section-box">
+                <div class="region-select-wrapper">
+                    <select class="region-select" id="region-select" aria-label="지역 선택" required>
+                        <option value="" disabled selected>지역 선택</option>
+                        <option value="수영구">광안리</option>
+                        <option value="해운대구">해운대</option>
+                        <option value="서면">서면</option>
+                    </select>
+                </div>
             </div>
-        </div>
-
-        <div class="section-box">
-
-        <div class="section-box">
-    <div class="section-title">동행 유형 선택</div>
-
-    <div class="options-wrapper" id="companion-options">
-        <div
-            class="option-card"
-            data-value="가족"
-            onclick="selectOption(this)"
-        >
-            <div class="option-text">가족</div>
-        </div>
-
-        <div
-            class="option-card"
-            data-value="연인"
-            onclick="selectOption(this)"
-        >
-            <div class="option-text">연인</div>
-        </div>
-
-        <div
-            class="option-card"
-            data-value="친구"
-            onclick="selectOption(this)"
-        >
-            <div class="option-text">친구</div>
-        </div>
-    </div>
-</div>
-
-    <div class="section-box">
-    <div class="section-title">날씨 선택</div>
-
-    <div class="options-wrapper" id="weather-options">
-        <div
-            class="option-card"
-            data-value="맑음"
-            onclick="selectOption(this)"
-        >
-            <div class="option-text">맑음</div>
-        </div>
-
-        <div
-            class="option-card"
-            data-value="비"
-            onclick="selectOption(this)"
-        >
-            <div class="option-text">비</div>
-        </div>
-
-        <div
-            class="option-card"
-            data-value="폭염"
-            onclick="selectOption(this)"
-        >
-            <div class="option-text">폭염</div>
-        </div>
-    </div>
-</div>
-
-        <div class="search-container">
-            <button class="search-btn" type="button" onclick="goToPage2()">
-             검색
-              <div class="search-icon-box">🔍</div>
-            </button>
-        </div>
-
-    </div>
-
-    <script src="./main.js"></script>
+            <div class="section-box filter-section">
+                <div class="section-title" id="companion-label">동행 유형 선택</div>
+                <div class="options-wrapper" id="companion-options" role="group" aria-labelledby="companion-label">
+                    <button class="option-card" type="button" data-value="가족" aria-pressed="false"><span class="option-text">가족</span></button>
+                    <button class="option-card" type="button" data-value="연인" aria-pressed="false"><span class="option-text">연인</span></button>
+                    <button class="option-card" type="button" data-value="친구" aria-pressed="false"><span class="option-text">친구</span></button>
+                </div>
+            </div>
+            <div class="section-box filter-section">
+                <div class="section-title" id="weather-label">날씨 선택</div>
+                <div class="options-wrapper" id="weather-options" role="group" aria-labelledby="weather-label">
+                    <button class="option-card" type="button" data-value="맑음" aria-pressed="false"><span class="option-text">맑음</span></button>
+                    <button class="option-card" type="button" data-value="비" aria-pressed="false"><span class="option-text">비</span></button>
+                    <button class="option-card" type="button" data-value="폭염" aria-pressed="false"><span class="option-text">폭염</span></button>
+                </div>
+            </div>
+            <p id="search-message" class="status-message" role="alert"></p>
+            <div class="search-container">
+                <button class="search-btn" type="submit">검색 <span aria-hidden="true">🔍</span></button>
+            </div>
+        </form>
+        <a id="saved-course-link" class="text-link" href="../page3/" hidden>선택한 코스 다시 보기</a>
+    </main>
 </body>
 </html>
